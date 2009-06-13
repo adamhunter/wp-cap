@@ -44,8 +44,7 @@ namespace :db do
   desc "Create wp-config.php in shared path" 
   task :default do 
     db_config = ERB.new <<-EOF 
-    
-    <?php
+<?php
     define('DB_NAME', '#{db_name}');
     define('DB_USER', '#{db_user}');
     define('DB_PASSWORD', '#{db_pass}');
