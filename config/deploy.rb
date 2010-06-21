@@ -37,8 +37,8 @@ set :db_user, 'USER'
 set :db_pass, 'PASS'
 set :db_host, 'localhost'
 set :db_prfx, 'wp_'
-# https doesn't seem to work :(
-set :secret_keys, open('http://api.wordpress.org/secret-key/1.1/').read
+
+set :secret_keys, open('https://api.wordpress.org/secret-key/1.1/salt/').read
 
 namespace :db do 
   desc "Create wp-config.php in shared path" 
