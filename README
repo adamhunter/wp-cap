@@ -1,3 +1,5 @@
+See the example at http://github.com/williamn/wp-cap-example
+
 Deploying WordPress with Capistrano
 
 Although anyone can use this, I doubt for the WP hobbiest it would be easier than FTP.  However, I use Capistrano to deploy all of my Ruby on Rails application and thought it would be really nice to manage my WordPress blog with Capistrano.  There are dozens of tutorials on setting up Capistrano, so be sure to check them out.  This will require Ruby and the Capistrano Ruby Gem.
@@ -8,10 +10,10 @@ Intended Directory structure:
   /config/
   /public/
   /wp-config.php (this will be created upon deploy)
-  
+
 There is a deploy.rb file inside of config already.  Your WordPress installation should go in the public folder.  Move wp-config-sample.php from public to config so that it can be copied and used on different development machines (like a database.yml.example).
 
-Once you have your files all set, you will need to convert this into a git repository so that you can do a Capistrano deployment.  Since you're getting this from github, I am assuming you know how to do this.  
+Once you have your files all set, you will need to convert this into a git repository so that you can do a Capistrano deployment.  Since you're getting this from github, I am assuming you know how to do this.
 
 When you are ready to deploy your app for the first time, make sure you edit deploy.rb with your production environment specific information. You will need to set:
 
@@ -31,6 +33,6 @@ cap deploy
 
 This is the command that you will run every time that you want to deploy updates to your WordPress app.  It will symlink the wp-config from /config/wp-config.php to /root/wp-config.php because WordPress will look one directory up for a non public wp-config.php.
 
-Once everything is deployed you will need to make sure apache is serving from the app_path/current/public folder NOT the root folder.  
+Once everything is deployed you will need to make sure apache is serving from the app_path/current/public folder NOT the root folder.
 
 If you have any question or this isn't working for you, please let me know or fork it on github! If you can get the security keys to download over HTTPS (instead of HTTP) for auto-generating the wp-config.php that would be great!
